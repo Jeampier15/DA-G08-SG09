@@ -1,0 +1,53 @@
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Conversor de Temperatura</title> 
+</head> 
+<body> 
+    <label for="temperature">Ingresa la temperatura:</label> 
+     
+    <input type="number" id="temperature" placeholder="Ej: 32" required> 
+     
+ 
+ 
+    <select id="scale"> 
+        <option value="C">Celsius</option> 
+        <option value="F">Fahrenheit</option> 
+    </select>  
+    <button onclick="convertTemperature()">Convertir</button> 
+ 
+    <script> 
+        function celsiusToFahrenheit(celsius) { 
+            return  (celsius * 9/5) + 32; 
+        } 
+ 
+ 
+        function fahrenheitToCelsius(fahrenheit) { 
+            return (fahrenheit -  32) * 5/9; 
+        } 
+ 
+ 
+ 
+ 
+        function convertTemperature() { 
+            const temperature = parseFloat(document.getElementById('temperature').value); 
+            const scale = document.getElementById('scale').value; 
+ 
+            if (isNaN(temperature)) { 
+                console.log("numero invalido"); 
+                return; 
+            } 
+ 
+            if (scale === 'C') { 
+                const result = celsiusToFahrenheit(temperature); 
+                console.log(`${temperature}°C es igual a ${result.toFixed(2)}°F`); 
+            } else if (scale === 'F') { 
+                const result = fahrenheitToCelsius(temperature); 
+                console.log(`${temperature}°F es igual a ${result.toFixed(2)}°C`); 
+            } 
+        } 
+    </script> 
+</body> 
+</html> 

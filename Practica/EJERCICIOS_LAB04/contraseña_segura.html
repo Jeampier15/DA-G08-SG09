@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+ 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Generador de Contraseña Segura</title> 
+     
+    <link rel="stylesheet" href="propuestostyle.css">
+</head> 
+ 
+    <body> 
+     
+        <div class="container"> 
+            <h2>Generador de Contraseña Segura</h2> 
+     
+            <label for="longitud">Longitud de la contraseña:</label> 
+            <input type="number" id="longitud" value="12" min="4" max="30"> 
+     
+            <label> 
+                <input type="checkbox" id="mayusculas" checked> 
+                Incluir mayúsculas 
+            </label> 
+     
+            <label> 
+                <input type="checkbox" id="minusculas" checked> 
+                Incluir minúsculas 
+            </label> 
+     
+            <label> 
+                <input type="checkbox" id="numeros" checked> 
+                Incluir números 
+            </label> 
+     
+            <label> 
+                <input type="checkbox" id="simbolos" checked> 
+                Incluir símbolos 
+            </label> 
+     
+            <button onclick="generarContrasena()">Generar Contraseña</button> 
+     
+            <div class="output" id="resultado"></div> 
+        </div> 
+     
+        <script> 
+            function generarContrasena() { 
+                const longitud = document.getElementById('longitud').value; 
+                const mayusculas = document.getElementById('mayusculas').checked; 
+                const minusculas = document.getElementById('minusculas').checked; 
+                const numeros = document.getElementById('numeros').checked; 
+                const simbolos = document.getElementById('simbolos').checked; 
+     
+                const opciones = { 
+                    mayusculas: mayusculas, 
+                    minusculas: minusculas, 
+                    numeros: numeros, 
+                    simbolos: simbolos 
+                }; 
+     
+                const contrasena = generar(longitud, opciones); 
+                document.getElementById('resultado').innerText = contrasena; 
+            } 
+     
+            function generar(longitud, opciones) { 
+                const letrasMayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+                const letrasMinusculas = 'abcdefghijklmnopqrstuvwxyz'; 
+                const numeros = '0123456789'; 
+                const simbolos = '!@#$%^&*()_+[]{}|;:,.<>?'; 
+                let caracteresDisponibles = ''; 
+ 
+ if (opciones.mayusculas) { 
+     caracteresDisponibles += letrasMayusculas; 
+ } 
+ if (opciones.minusculas) { 
+     caracteresDisponibles += letrasMinusculas; 
+ } 
+ if (opciones.numeros) { 
+     caracteresDisponibles += numeros; 
+ } 
+ if (opciones.simbolos) { 
+     caracteresDisponibles += simbolos; 
+ } 
+
+ if (caracteresDisponibles.length === 0) { 
+     return 'Seleccione al menos una opción'; 
+ } 
+
+ let contrasena = ''; 
+
+ for (let i = 0; i < longitud; i++) { 
+     const indiceAleatorio = Math.floor(Math.random() * caracteresDisponibles.length); 
+     contrasena += caracteresDisponibles[indiceAleatorio]; 
+ } 
+
+ return contrasena; 
+} 
+</script> 
+
+</body> 
+
+</html> 
