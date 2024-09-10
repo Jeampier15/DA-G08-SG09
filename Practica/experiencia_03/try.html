@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Excepciones</title>
+</head>
+<body>
+
+    <h1>Práctica: Manejo de Excepciones en JavaScript</h1>
+
+    <script>
+        // Definición de la excepción personalizada
+        function UserException(message) {
+            this.message = message;
+            this.name = 'UserException';
+        }
+
+        // Función para obtener el nombre del mes
+        function getMonthName(mo) {
+            mo--; // Ajusta el número del mes para el índice del array (1 = Ene, 12 = Dic)
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+                            'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            if (mo >= 0 && mo < months.length) {
+                return months[mo];
+            } else {
+                throw new UserException('InvalidMonthNo'); // Lanza excepción si el mes es inválido
+            }
+        }
+
+        let monthName;
+
+        try {
+            // Bloque try para ejecutar el código que podría lanzar una excepción
+            const myMonth = 15; // 15 está fuera de rango para el array de meses
+            monthName = getMonthName(myMonth);
+        } catch (e) {
+            // Bloque catch para manejar la excepción
+            monthName = 'unknown';
+            console.error('Error:', e.message, 'Nombre de la excepción:', e.name); // Imprime el mensaje y nombre de la excepción
+        }
+
+        console.log('Month Name:', monthName); // Imprime el nombre del mes o 'unknown'
+    </script>
+
+</body>
+</html>

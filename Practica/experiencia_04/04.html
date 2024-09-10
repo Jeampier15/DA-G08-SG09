@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica: Uso de Objetos en JavaScript</title>
+</head>
+<body>
+    <h1>Práctica: Uso de Objetos en JavaScript</h1>
+    <script>
+        // a) CREACIÓN DE OBJETOS
+
+        // 1. Agregar objetos utilizando iniciadores de objetos
+        console.log("1. Crear objeto usando iniciador de objeto:");
+        const persona1 = {
+            nombre: "John",
+            apellido: "Doe",
+            edad: 30,
+            saludar: function() {
+                console.log(`Hola, mi nombre es ${this.nombre} ${this.apellido}.`);
+            }
+        };
+        persona1.saludar();
+
+        // 2. Agregar objetos utilizando métodos constructores
+        console.log("2. Crear objeto usando constructor:");
+        function Persona(nombre, apellido, edad) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.saludar = function() {
+                console.log(`Hola, mi nombre es ${this.nombre} ${this.apellido}.`);
+            };
+        }
+        const persona2 = new Persona("Jane", "Smith", 25);
+        persona2.saludar();
+
+        // 3. Agregar objetos utilizando el método Object.create()
+        console.log("3. Crear objeto usando Object.create():");
+        const prototipoPersona = {
+            saludar: function() {
+                console.log(`Hola, mi nombre es ${this.nombre} ${this.apellido}.`);
+            }
+        };
+        const persona3 = Object.create(prototipoPersona);
+        persona3.nombre = "Alice";
+        persona3.apellido = "Johnson";
+        persona3.edad = 28;
+        persona3.saludar();
+
+        // 4. Grabar y probar los cambios hechos en el código
+        console.log("4. Código grabado y probado.");
+
+        // b) AGREGANDO PROPIEDADES A LOS OBJETOS
+
+        // 1. Agregar propiedades a objetos utilizando iniciadores de objetos
+        console.log("1. Agregar propiedades usando iniciador de objeto:");
+        persona1.email = "john.doe@example.com";
+        persona1.telefono = "123-456-7890";
+        console.log(persona1);
+
+        // 2. Agregar propiedades a objetos utilizando métodos constructores
+        console.log("2. Agregar propiedades usando constructor:");
+        persona2.email = "jane.smith@example.com";
+        persona2.telefono = "987-654-3210";
+        console.log(persona2);
+
+        // 3. Agregar propiedades a objetos utilizando el método Object.create()
+        console.log("3. Agregar propiedades usando Object.create():");
+        persona3.email = "alice.johnson@example.com";
+        persona3.telefono = "555-123-4567";
+        console.log(persona3);
+
+        // 4. Grabar y probar los cambios hechos en el código
+        console.log("4. Código grabado y probado.");
+    </script>
+</body>
+</html>

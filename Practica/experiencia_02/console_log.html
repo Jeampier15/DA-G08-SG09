@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de console.log() y Scope</title>
+</head>
+<body>
+
+    <h1>Práctica: Uso de console.log() y Scope en JavaScript</h1>
+
+    <script>
+     
+        let variableNoAsignada;
+        console.log("Valor de variableNoAsignada:", variableNoAsignada); 
+
+      
+
+     
+        function funcionExterna() {
+            let mensajeExterno = "Estoy en la función externa";
+
+            console.log("Dentro de funcionExterna:");
+            console.log(mensajeExterno); // Accesible dentro de la función externa
+
+            // Función interna
+            function funcionInterna() {
+                let mensajeInterno = "Estoy en la función interna";
+
+                console.log("Dentro de funcionInterna:");
+                console.log(mensajeExterno); // Accesible, ya que está en el scope de la función externa
+                console.log(mensajeInterno); // Accesible solo dentro de funcionInterna
+            }
+
+            funcionInterna();
+
+            // Intento de acceso a la variable de funcionInterna
+            try {
+                console.log(mensajeInterno); // Error: mensajeInterno is not defined
+            } catch (error) {
+                console.log("Error:", error.message);
+            }
+        }
+
+        funcionExterna();
+
+        // Intento de acceso a la variable de funcionExterna fuera de su ámbito
+        try {
+            console.log(mensajeExterno); // Error: mensajeExterno is not defined
+        } catch (error) {
+            console.log("Error:", error.message);
+        }
+
+    </script>
+
+</body>
+</html>

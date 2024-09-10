@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica: Uso de Arrays en JavaScript</title>
+</head>
+<body>
+    <h1>Práctica: Uso de Arrays en JavaScript</h1>
+    <script>
+        // a) CREACIÓN DE ARRAYS
+
+        // 1. Crear 3 arrays diferentes (numéricos, strings y objetos) bajo los 3 métodos de creación
+
+        // Método 1: Array literal
+        const numeros1 = [1, 2, 3, 4, 5];
+        const strings1 = ["manzana", "banana", "cereza"];
+        const objetos1 = [{ nombre: "Juan", edad: 30 }, { nombre: "Ana", edad: 25 }];
+
+        // Método 2: Constructor Array
+        const numeros2 = new Array(6, 7, 8, 9, 10);
+        const strings2 = new Array("naranja", "kiwi", "mango");
+        const objetos2 = new Array({ nombre: "Pedro", edad: 40 }, { nombre: "María", edad: 35 });
+
+        // Método 3: Array.of()
+        const numeros3 = Array.of(11, 12, 13, 14, 15);
+        const strings3 = Array.of("pera", "uva", "sandía");
+        const objetos3 = Array.of({ nombre: "Luis", edad: 28 }, { nombre: "Laura", edad: 32 });
+
+        // 2. Hacer rutinas para el ingreso de datos a los 3 arreglos
+
+        function agregarDatos() {
+            // Agregar datos a los arrays
+            numeros1.push(6);
+            strings1.push("fresa");
+            objetos1.push({ nombre: "Carlos", edad: 22 });
+
+            numeros2.push(11);
+            strings2.push("mango");
+            objetos2.push({ nombre: "Sofia", edad: 27 });
+
+            numeros3.push(16);
+            strings3.push("papaya");
+            objetos3.push({ nombre: "David", edad: 33 });
+        }
+
+        agregarDatos();
+
+        // 3. Grabar y probar los cambios hechos en el código
+        console.log("Arrays después de agregar datos:");
+        console.log("Numeros1:", numeros1);
+        console.log("Strings1:", strings1);
+        console.log("Objetos1:", objetos1);
+
+        console.log("Numeros2:", numeros2);
+        console.log("Strings2:", strings2);
+        console.log("Objetos2:", objetos2);
+
+        console.log("Numeros3:", numeros3);
+        console.log("Strings3:", strings3);
+        console.log("Objetos3:", objetos3);
+
+        // 4. Visualizar los resultados en la página web
+        document.body.innerHTML += `<h2>Numeros1: ${numeros1}</h2>`;
+        document.body.innerHTML += `<h2>Strings1: ${strings1}</h2>`;
+        document.body.innerHTML += `<h2>Objetos1: ${JSON.stringify(objetos1)}</h2>`;
+
+        document.body.innerHTML += `<h2>Numeros2: ${numeros2}</h2>`;
+        document.body.innerHTML += `<h2>Strings2: ${strings2}</h2>`;
+        document.body.innerHTML += `<h2>Objetos2: ${JSON.stringify(objetos2)}</h2>`;
+
+        document.body.innerHTML += `<h2>Numeros3: ${numeros3}</h2>`;
+        document.body.innerHTML += `<h2>Strings3: ${strings3}</h2>`;
+        document.body.innerHTML += `<h2>Objetos3: ${JSON.stringify(objetos3)}</h2>`;
+
+        // 5. Verificar los resultados y corregir errores (ver en la consola y en la página web)
+
+        // b) MANIPULACIÓN DE ARRAYS
+
+        // 1. Aplicar sobre los arreglos creados diferentes tipos de acciones
+
+        // Ejemplo de manipulación de arrays
+        numeros1.pop(); // Elimina el último elemento
+        strings1.shift(); // Elimina el primer elemento
+        objetos1.splice(1, 1, { nombre: "Ricardo", edad: 29 }); // Reemplaza el segundo objeto
+
+        numeros2.reverse(); // Invierte el array
+        strings2.sort(); // Ordena el array alfabéticamente
+        objetos2.forEach(obj => console.log(`${obj.nombre} tiene ${obj.edad} años.`)); // Itera sobre objetos
+
+        // 2. Grabar y probar los cambios hechos en el código
+        console.log("Arrays después de manipulación:");
+        console.log("Numeros1:", numeros1);
+        console.log("Strings1:", strings1);
+        console.log("Objetos1:", objetos1);
+
+        console.log("Numeros2:", numeros2);
+        console.log("Strings2:", strings2);
+        console.log("Objetos2:", objetos2);
+
+        // 3. Visualizar los resultados en la página web
+        document.body.innerHTML += `<h2>Numeros1 después de manipulación: ${numeros1}</h2>`;
+        document.body.innerHTML += `<h2>Strings1 después de manipulación: ${strings1}</h2>`;
+        document.body.innerHTML += `<h2>Objetos1 después de manipulación: ${JSON.stringify(objetos1)}</h2>`;
+
+        document.body.innerHTML += `<h2>Numeros2 después de manipulación: ${numeros2}</h2>`;
+        document.body.innerHTML += `<h2>Strings2 después de manipulación: ${strings2}</h2>`;
+        document.body.innerHTML += `<h2>Objetos2 después de manipulación: ${JSON.stringify(objetos2)}</h2>`;
+
+        // c) USO DE ITERADORES DE ARRAYS
+
+        // 1. Aplicar sobre los arreglos creados diferentes tipos de Iteradores
+
+        // forEach
+        numeros3.forEach(num => console.log(`Número: ${num}`));
+        strings3.forEach(str => console.log(`String: ${str}`));
+        objetos3.forEach(obj => console.log(`Objeto: ${obj.nombre}, Edad: ${obj.edad}`));
+
+        // map
+        const numerosDoblados = numeros3.map(num => num * 2);
+        const stringsMayusculas = strings3.map(str => str.toUpperCase());
+        const edades = objetos3.map(obj => obj.edad);
+
+        console.log("Numeros3 doblados:", numerosDoblados);
+        console.log("Strings3 en mayúsculas:", stringsMayusculas);
+        console.log("Edades de objetos3:", edades);
+
+        // filter
+        const numerosFiltrados = numeros3.filter(num => num > 12);
+        const stringsFiltrados = strings3.filter(str => str.includes("a"));
+
+        console.log("Numeros3 filtrados:", numerosFiltrados);
+        console.log("Strings3 filtrados:", stringsFiltrados);
+
+        // reduce
+        const sumaNumeros = numeros3.reduce((acc, num) => acc + num, 0);
+        const longitudStrings = strings3.reduce((acc, str) => acc + str.length, 0);
+
+        console.log("Suma de Numeros3:", sumaNumeros);
+        console.log("Longitud total de Strings3:", longitudStrings);
+
+        // 2. Grabar y probar los cambios hechos en el código
+        console.log("Arrays después de aplicar iteradores:");
+        console.log("Numeros3 doblados:", numerosDoblados);
+        console.log("Strings3 en mayúsculas:", stringsMayusculas);
+        console.log("Edades de objetos3:", edades);
+        console.log("Numeros3 filtrados:", numerosFiltrados);
+        console.log("Strings3 filtrados:", stringsFiltrados);
+        console.log("Suma de Numeros3:", sumaNumeros);
+        console.log("Longitud total de Strings3:", longitudStrings);
+
+        // 3. Visualizar los resultados en la página web
+        document.body.innerHTML += `<h2>Numeros3 doblados: ${numerosDoblados}</h2>`;
+        document.body.innerHTML += `<h2>Strings3 en mayúsculas: ${stringsMayusculas}</h2>`;
+        document.body.innerHTML += `<h2>Edades de objetos3: ${edades}</h2>`;
+
+        document.body.innerHTML += `<h2>Numeros3 filtrados: ${numerosFiltrados}</h2>`;
+        document.body.innerHTML += `<h2>Strings3 filtrados: ${stringsFiltrados}</h2>`;
+
+        document.body.innerHTML += `<h2>Suma de Numeros3: ${sumaNumeros}</h2>`;
+        document.body.innerHTML += `<h2>Longitud total de Strings3: ${longitudStrings}</h2>`;
+    </script>
+</body>
+</html>

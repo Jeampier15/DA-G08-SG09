@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Variables y Constantes</title>
+</head>
+<body>
+
+    <h1>Práctica: Variables y Constantes en JavaScript</h1>
+
+    <script>
+        // Paso 1: Crear un bloque de código
+        function ejemploAmbito() {
+            // Paso 2: Declarar una variable con ámbito de bloque
+            let mensaje = "Hola desde dentro del bloque";
+
+            // Paso 3: Declarar una constante con ámbito de bloque
+            const PI = 3.1416;
+
+            // Mostrar dentro del bloque
+            console.log("Dentro del bloque:");
+            console.log(mensaje); // Imprime: Hola desde dentro del bloque
+            console.log(PI); // Imprime: 3.1416
+        }
+
+        ejemploAmbito();
+
+        // Paso 4: Intentar acceder a las variables fuera del bloque (esto generará un error)
+        console.log("Fuera del bloque:");
+        try {
+            console.log(mensaje); // Error: mensaje is not defined
+        } catch (error) {
+            console.log("Error:", error.message);
+        }
+
+        try {
+            console.log(PI); // Error: PI is not defined
+        } catch (error) {
+            console.log("Error:", error.message);
+        }
+    </script>
+
+</body>
+</html>

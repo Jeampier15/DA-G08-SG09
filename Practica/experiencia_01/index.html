@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacción con JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interacción con JavaScript</h1>
+
+    <p id="mensaje">Haz clic en el botón para cambiar este mensaje.</p>
+
+    <button onclick="cambiarMensaje()">Cambiar Mensaje</button>
+
+    <script>
+      
+        function cambiarMensaje() {
+            document.getElementById("mensaje").innerText = "¡Has cambiado el mensaje!";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenido a la página interactiva</h1>
+    </header>
+
+    <main>
+        <section>
+            <p id="mensaje">Este mensaje será modificado con JavaScript.</p>
+            <button id="botonMensaje">Cambiar mensaje</button>
+        </section>
+
+        <section>
+            <input type="text" id="nombreInput" placeholder="Escribe tu nombre">
+            <button id="botonSaludo">Saludar</button>
+            <p id="saludo"></p>
+        </section>
+    </main>
+
+    <script>
+        // Paso 3: Afectar elementos HTML a través de JavaScript
+
+        // Paso 4: Agregar dinamismo y funcionalidad
+        document.getElementById("botonMensaje").addEventListener("click", function() {
+            document.getElementById("mensaje").innerText = "¡El mensaje ha sido cambiado!";
+        });
+
+        document.getElementById("botonSaludo").addEventListener("click", function() {
+            var nombre = document.getElementById("nombreInput").value;
+            if(nombre) {
+                document.getElementById("saludo").innerText = "Hola, " + nombre + "!";
+            } else {
+                document.getElementById("saludo").innerText = "Por favor, ingresa tu nombre.";
+            }
+        });
+    </script>
+
+</body>
+</html>
