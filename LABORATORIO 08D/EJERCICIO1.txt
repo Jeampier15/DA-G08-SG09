@@ -7,11 +7,14 @@ class State(rx.State):
         self.mostrar_solo_pendientes = not self.mostrar_solo_pendientes
 
 tareas = [
-    {"titulo": "Tarea 1", "estado": "Pendiente"},
-    {"titulo": "Tarea 2", "estado": "Completado"},
-    {"titulo": "Tarea 3", "estado": "Pendiente"},
-    {"titulo": "Tarea 4", "estado": "Completado"},
-    {"titulo": "Tarea 5", "estado": "Pendiente"},
+    {"titulo": "MATEMATICA", "estado": "Pendiente"},
+    {"titulo": "COMUNICACION", "estado": "Completado"},
+    {"titulo": "BIOLOGIA", "estado": "Pendiente"},
+    {"titulo": "ARTE", "estado": "Completado"},
+    {"titulo": "MUSICA", "estado": "Pendiente"},
+     {"titulo": "PERSONAL SOCIAL", "estado": "Pendiente"},
+     {"titulo": "ARITMETICA", "estado": "Pendiente"},
+     {"titulo": "RELIGION", "estado": "Pendiente"},
 ]
 
 def tarjeta_tarea(tarea):
