@@ -13,16 +13,16 @@ tareas = [
     {"titulo": "Tarea 4", "estado": "Completado"},
     {"titulo": "Tarea 5", "estado": "Pendiente"},
 ]
+
 def tarjeta_tarea(tarea):
     return rx.table.row(
-        rx.table.cell(tarea["titulo"]),
-        rx.table.cell(tarea["estado"]),
-        style={"padding": "10px", "border-bottom": "1px solid #ddd"}
+        rx.table.cell(tarea["titulo"]),  
+        rx.table.cell(tarea["estado"])
     )
 
 def columna_kanban(nombre, tareas):
     return rx.box(
-        rx.heading(nombre, size="md", style={"text-align": "center", "margin-bottom": "10px", "color": "#333"}),
+        rx.heading(nombre),
         rx.table.root(
             rx.table.body(
                 rx.foreach(
@@ -30,8 +30,7 @@ def columna_kanban(nombre, tareas):
                     tarjeta_tarea,
                 )
             ),
-        ),
-        style={"flex": "1", "padding": "10px", "background-color": "#ffffff", "border-radius": "8px", "box-shadow": "0 2px 5px rgba(0, 0, 0, 0.1)"}
+        )
     )
 
 # Filtrar tareas segun el estado de la variable mostrar_solo_pendientes
@@ -53,37 +52,18 @@ def index():
                 "Mostrar Solo Pendientes"
             ),
             on_click=State.mostrar_pendientes,
-            style={
-                "margin-bottom": "20px",
-                "padding": "10px 20px",
-                "background-color": "#457b9d",
-                "color": "#ffffff",
-                "border": "none",
-                "border-radius": "5px",
-                "cursor": "pointer"
-            }
         ),
 
-
-# Contenedor para el tablero Kanban
+        # Contenedor para el tablero Kanban
         rx.box(
             rx.hstack(
                 columna_kanban("Tareas", obtener_tareas_filtradas()),  # Mostrar solo tareas filtradas
             ),
-            style={
-                "display": "flex",
-                "justify-content": "center",
-                "width": "80%",
-                "margin": "0 auto",
-                "gap": "20px",
-            }
         ),
-        
-        style={
-            "text-align": "center",
-            "margin-top": "20px",
-        }
     )
 
 app = rx.App()
 app.add_page(index)
+
+
+
