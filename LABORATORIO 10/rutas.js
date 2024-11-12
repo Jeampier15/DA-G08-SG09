@@ -37,3 +37,25 @@ function isAuthenticated(req, res, next) {
 module.exports = router;
 
 module.exports = router;
+
+
+// Middleware que introduce un retraso específico para cada ruta
+//const retrasoMiddleware = (tiempo) => {
+ // return (req, res, next) => {
+ //   console.log(`Esperando ${tiempo / 1000} segundos...`);
+  //  setTimeout(() => {
+  //    next(); // Después del tiempo especificado, continúa con la siguiente ruta
+ //   }, tiempo); // Tiempo en milisegundos
+//  };
+//};
+
+// Rutas públicas con diferentes retrasos
+//router.get('/', retrasoMiddleware(3000), controlador.paginaPrincipal); // 3 segundos
+//router.get('/productos', retrasoMiddleware(5000), controlador.productos); // 5 segundos
+//router.get('/contacto', retrasoMiddleware(2000), controlador.contacto); // 2 segundos
+//router.get('/producto/:id', retrasoMiddleware(1000), controlador.detalleProducto); // 1 segundo
+
+// Ruta protegida por middleware de autenticación con un retraso de 4 segundos
+//router.get('/perfil', isAuthenticated, retrasoMiddleware(4000), (req, res) => {
+ // res.send('Página de perfil del usuario');
+//});
