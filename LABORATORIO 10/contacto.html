@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Mi Aplicación Express</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Cabecera -->
+  <header>
+    <div class="container">
+      <h1>Contacto</h1>
+      <p>Estamos aquí para ayudarte. ¿Tienes alguna pregunta? ¡Contáctanos!</p>
+    </div>
+  </header>
+
+  <!-- Barra de navegación -->
+  <nav>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/productos">Productos</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <div class="container">
+      <section class="formulario">
+        <h2>Formulario de Contacto</h2>
+        <p>Envíanos un mensaje y nos pondremos en contacto contigo lo antes posible.</p>
+        <form action="/enviar-mensaje" method="POST">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required>
+
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="mensaje" required></textarea>
+
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </section>
+
+      <section class="informacion">
+        <h2>Información de contacto</h2>
+        <p>Si prefieres, también puedes contactarnos a través de nuestras redes sociales o por teléfono.</p>
+        
+        <div class="info-contacto">
+          <p><strong>Teléfono:</strong> +123 456 7890</p>
+          <p><strong>Email:</strong> contacto@miapp.com</p>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="redes-sociales">
+          <h3>Síguenos</h3>
+          <ul>
+            <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2024 Mi Aplicación Express</p>
+    <p><a href="/terminos">Términos y condiciones</a> | <a href="/privacidad">Política de privacidad</a></p>
+  </footer>
+</body>
+</html>
