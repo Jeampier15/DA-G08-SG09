@@ -1,0 +1,17 @@
+    jwt.verify(bearerToken, JWT_SECRET, (err, decoded) => {
+        if (err) {
+            // Si el token ha expirado, mostrar un mensaje específico
+            if (err.name === 'TokenExpiredError') {
+                return res.status(401).json({
+                    mensaje: 'El token ha expirado. Por favor, inicie sesión nuevamente.'
+                });
+            }
+            // Si el token es inválido por otro motivo
+            return res.status(403).json({
+                mensaje: 'Token inválido. Acceso denegado.'
+            });
+        }
+        req.user = decoded; // Decodificamos el payload del token
+        next(); // Continuamos con la solicitud
+    });
+}
